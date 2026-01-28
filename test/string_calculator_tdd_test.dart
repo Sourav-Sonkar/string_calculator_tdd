@@ -45,4 +45,17 @@ void main() {
     // Then
     expect(result, 8);
   });
+
+  test('add numbers separated by newlines', (){
+    // Given
+    final String input = '1\n2,5';
+
+    // When
+    final result = add(input);
+
+    // Then
+    expect(result, 8);
+  });
+
+
 }

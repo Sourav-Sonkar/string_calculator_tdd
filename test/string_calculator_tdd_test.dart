@@ -23,4 +23,15 @@ void main() {
     // Then
     expect(result, 1);
   });
+
+  test('return sum of two numbers separated by comma', (){
+    // Given
+    final String input = '1,5';
+
+    // When
+    final result = add(input);
+
+    // Then
+    expect(result, 1);
+  });
 }

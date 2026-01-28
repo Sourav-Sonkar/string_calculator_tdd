@@ -34,4 +34,15 @@ void main() {
     // Then
     expect(result, 6);
   });
+
+  test('return sum of multiple numbers separated by comma', (){
+    // Given
+    final String input = '1,2,5';
+
+    // When
+    final result = add(input);
+
+    // Then
+    expect(result, 8);
+  });
 }

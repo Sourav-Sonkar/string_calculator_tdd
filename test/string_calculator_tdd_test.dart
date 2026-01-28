@@ -32,6 +32,6 @@ void main() {
     final result = add(input);
 
     // Then
-    expect(result, 1);
+    expect(result, 6);
   });
 }

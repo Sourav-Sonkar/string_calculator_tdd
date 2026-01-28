@@ -57,5 +57,16 @@ void main() {
     expect(result, 8);
   });
 
+  test('support custom delimiter', (){
+    // Given
+    final String input = '//;\n1;2';
+
+    // When
+    final result = add(input);
+
+    // Then
+    expect(result, 3);
+  });
+
 
 }

@@ -24,7 +24,7 @@ void main() {
     expect(result, 1);
   });
 
-  test('return sum of two numbers separated by comma', (){
+  test('return sum of two numbers separated by comma', () {
     // Given
     final String input = '1,5';
 
@@ -35,7 +35,7 @@ void main() {
     expect(result, 6);
   });
 
-  test('return sum of multiple numbers separated by comma', (){
+  test('return sum of multiple numbers separated by comma', () {
     // Given
     final String input = '1,2,5';
 
@@ -46,7 +46,7 @@ void main() {
     expect(result, 8);
   });
 
-  test('add numbers separated by newlines', (){
+  test('add numbers separated by newlines', () {
     // Given
     final String input = '1\n2,5';
 
@@ -57,7 +57,7 @@ void main() {
     expect(result, 8);
   });
 
-  test('support custom delimiter', (){
+  test('support custom delimiter', () {
     // Given
     final String input = '//;\n1;2';
 
@@ -68,5 +68,14 @@ void main() {
     expect(result, 3);
   });
 
+  test('throw error for negative number', (){
+    // Given
+    final String input = '1,2,-3,5';
 
+    // When
+    final result = add(input);
+
+    // Then
+    expect(result, throwsUnsupportedError);
+  });
 }

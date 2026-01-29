@@ -92,4 +92,16 @@ void main() {
       ),
     );
   });
+
+  test('ignores numbers greater than 1000', () {
+  // Given
+  final input = '2,1001';
+
+  // When
+  final result = add(input);
+
+  // Then
+  expect(result, equals(2));
+});
+
 }

@@ -68,11 +68,28 @@ void main() {
     expect(result, 3);
   });
 
-  test('throw error for negative number', (){
+  test('throw error for negative number', () {
     // Given
     final String input = '1,2,-3,5';
 
     // Then
     expect(() => add(input), throwsUnsupportedError);
+  });
+
+  test('throw error for negative number with all negative numbers', () {
+    // Given
+    final String input = '1,2,-3,-5';
+
+    // Then
+    expect(
+      () => add(input),
+      throwsA(
+        predicate(
+          (e) =>
+              e is UnsupportedError &&
+              e.message == 'Negatives not allowed ie -3,-5',
+        ),
+      ),
+    );
   });
 }

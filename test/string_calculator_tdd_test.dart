@@ -72,10 +72,7 @@ void main() {
     // Given
     final String input = '1,2,-3,5';
 
-    // When
-    final result = add(input);
-
     // Then
-    expect(result, throwsUnsupportedError);
+    expect(() => add(input), throwsUnsupportedError);
   });
 }

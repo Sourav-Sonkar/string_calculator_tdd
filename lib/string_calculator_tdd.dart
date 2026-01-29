@@ -14,7 +14,9 @@ int add(String numbers) {
   for (final part in parts) {
     int curr = int.parse(part);
     if (curr < 0) negatives.add(curr);
-    sum += int.parse(part);
+    if(curr<=1000) {
+      sum += int.parse(part);
+    }
   }
   if (negatives.isNotEmpty) {
     throw UnimplementedError('Negatives not allowed ie ${negatives.join(',')}');

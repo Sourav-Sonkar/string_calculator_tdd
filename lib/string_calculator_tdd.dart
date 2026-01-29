@@ -4,7 +4,12 @@ int add(String numbers) {
 
   if (numbers.startsWith('//')) {
     final split = numbers.split('\n');
-    delimiter = split.first.substring(2);
+    final delimiterPart = split.first.substring(2);
+    if (delimiterPart.startsWith('[') && delimiterPart.endsWith(']')) {
+      delimiter = delimiterPart.substring(1, delimiterPart.length - 1);
+    } else {
+      delimiter = delimiterPart;
+    }
     numbers = split.last;
   }
 
@@ -14,7 +19,7 @@ int add(String numbers) {
   for (final part in parts) {
     int curr = int.parse(part);
     if (curr < 0) negatives.add(curr);
-    if(curr<=1000) {
+    if (curr <= 1000) {
       sum += int.parse(part);
     }
   }

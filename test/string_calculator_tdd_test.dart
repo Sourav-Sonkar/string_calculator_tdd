@@ -7,7 +7,7 @@ void main() {
     final String input = '';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, 0);
@@ -18,7 +18,7 @@ void main() {
     final String input = '1';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, 1);
@@ -29,7 +29,7 @@ void main() {
     final String input = '1,5';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, 6);
@@ -40,7 +40,7 @@ void main() {
     final String input = '1,2,5';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, 8);
@@ -51,7 +51,7 @@ void main() {
     final String input = '1\n2,5';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, 8);
@@ -62,7 +62,7 @@ void main() {
     final String input = '//;\n1;2';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, 3);
@@ -73,7 +73,7 @@ void main() {
     final String input = '1,2,-3,5';
 
     // Then
-    expect(() => add(input), throwsUnsupportedError);
+    expect(() => operation(input), throwsUnsupportedError);
   });
 
   test('throw error for negative number with all negative numbers', () {
@@ -82,7 +82,7 @@ void main() {
 
     // Then
     expect(
-      () => add(input),
+      () => operation(input),
       throwsA(
         predicate(
           (e) =>
@@ -98,7 +98,7 @@ void main() {
     final input = '2,1001';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, equals(2));
@@ -109,9 +109,20 @@ void main() {
     final input = '//[***]\n1***2***3';
 
     // When
-    final result = add(input);
+    final result = operation(input);
 
     // Then
     expect(result, equals(6));
+  });
+
+  test('multiple numbers if delimiter is a star', () {
+    // Given
+    final input = '//[*]\n2*2*3';
+
+    // When
+    final result = operation(input);
+
+    // Then
+    expect(result, equals(12));
   });
 }

@@ -115,7 +115,7 @@ void main() {
     expect(result, equals(6));
   });
 
-  test('multiple numbers if delimiter is a star', () {
+  test('multiply numbers if delimiter is a star', () {
     // Given
     final input = '//[*]\n2*2*3';
 
